@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cards
+  profiles:
+    active: production
+  datasource:
+    url: ${cards.datasource.url}
+    username: ${cards.datasource.username}
+    password: ${cards.datasource.password}
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: ${cards.jpa.showsql}
+    database: ${cards.jpa.database}
+    hibernate:
+      ddl-auto: ${cards.jpa.hibernate.ddl-auto}
+
+management:
+  endpoint:
+    info:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client: ${eureka-client}
